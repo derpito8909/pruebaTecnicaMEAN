@@ -36,7 +36,7 @@ git clone https://github.com/derpito8909/pruebaTecnicaMEAN.git
  npm install
 ```
 
-3. inicie el servidor del API con la opcion npn run start
+3. inicie el servidor del API con la opcion npn run dev
 
 ```shell
 npm run dev
