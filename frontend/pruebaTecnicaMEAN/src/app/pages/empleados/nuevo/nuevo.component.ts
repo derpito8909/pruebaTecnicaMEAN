@@ -90,11 +90,11 @@ export class NuevoComponent implements OnInit, OnDestroy {
     if (employeData) {
       const request$ = this.isEditMode
         ? this.apiService.update<Empleado>(
-            'courses',
+            'empleado',
             this.employeId!,
             employeData
           )
-        : this.apiService.create<Empleado>('courses', employeData);
+        : this.apiService.create<Empleado>('empleado', employeData);
       request$.pipe(takeUntil(this.destroy$)).subscribe({
         next: (res) => {
           this.handleSuccess(res);
