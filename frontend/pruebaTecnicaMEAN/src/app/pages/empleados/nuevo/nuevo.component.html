@@ -1,0 +1,84 @@
+<section class="nuevo d-flex flex-column align-items-center p-3">
+  <nav aria-label="breadcrumb" class="w-100 container-breadcrumb">
+    <ol class="breadcrumb mx-3 my-3 my-md-3">
+      <li class="breadcrumb-item">
+        <a routerLink="/principal">Inicio</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        {{ isEditMode ? "Editar empleado" : "Crear empleado" }}
+      </li>
+    </ol>
+  </nav>
+  <section class="vh-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center gap-3">
+        <div
+          class="col-md-6 col-lg-7 d-flex align-items-center justify-content-center"
+        >
+          <h2>
+            {{ isEditMode ? "Editar Empleado" : "Crear empleado" }}
+          </h2>
+        </div>
+        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+          <form
+            class="example-form"
+            [formGroup]="employeForm"
+            (ngSubmit)="onSubmit()"
+          >
+            <!-- Campo codigo -->
+            <mat-form-field class="example-full-width">
+              <mat-label>codigo</mat-label>
+              <input matInput type="number" formControlName="codigo" />
+            </mat-form-field>
+
+            <!-- Campo nombre -->
+            <mat-form-field class="rounded example-full-width">
+              <mat-label>Nombre</mat-label>
+              <input matInput type="text" formControlName="nombre" />
+            </mat-form-field>
+            <!-- Campo de apellido -->
+            <mat-form-field class="rounded example-full-width">
+              <mat-label>apellido1</mat-label>
+              <input matInput type="text" formControlName="apellido1" />
+            </mat-form-field>
+            <!-- Campo de apellido2-->
+            <mat-form-field class="rounded example-full-width">
+              <mat-label>apellido2</mat-label>
+              <input matInput type="text" formControlName="apellido2" />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>departamento</mat-label>
+              <input
+                matInput
+                type="number"
+                formControlName="codigo_departamento"
+              />
+            </mat-form-field>
+
+            <!-- Campo de Selección de lider -->
+            <!-- <mat-form-field class="example-full-width">
+              <mat-label>Lider Encargado</mat-label>
+              <mat-select formControlName="user">
+                <mat-option
+                  *ngFor="let leader of leaderUsers"
+                  [value]="leader._id"
+                >
+                  {{ leader.fullname }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field> -->
+
+            <!-- Botón de Enviar -->
+            <button class="btn btn-primary w-100" type="submit">
+              {{ isEditMode ? "Actualizar" : "Crear" }}
+            </button>
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+              {{ errorMessage }}
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

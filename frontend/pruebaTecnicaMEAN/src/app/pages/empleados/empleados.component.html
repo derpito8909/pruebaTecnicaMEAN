@@ -1,0 +1,90 @@
+<section class="lista-curso d-flex flex-column align-items-center p-3">
+  <nav aria-label="breadcrumb" class="w-100 container-breadcrumb">
+    <ol class="breadcrumb mx-3 my-3 my-md-3">
+      <li class="breadcrumb-item">
+        <a routerLink="/principal">Inicio</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Lista empleados
+      </li>
+    </ol>
+  </nav>
+  <div class="d-flex flex-column w-100 gap-3 mt-md-4 p-md-4 p-3">
+    <h2>Listado Empleados</h2>
+
+    <button (click)="addEmploye()" class="btn btn-primary" role="button">
+      Nuevo empleado
+    </button>
+
+    <button (click)="showDepartament()" class="btn btn-primary" role="button">
+      agregar departamento
+    </button>
+    <div class="table-responsive mat-elevation-z8 w-100">
+      <table mat-table [dataSource]="dataSource" matSort class="table">
+        <!-- codigo Column -->
+        <ng-container matColumnDef="codigo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>codigo</th>
+          <td mat-cell *matCellDef="let employe">{{ employe.codigo }}</td>
+        </ng-container>
+
+        <!-- nombre Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>nombre</th>
+          <td mat-cell *matCellDef="let employe">{{ employe.nombre }}</td>
+        </ng-container>
+
+        <!-- apellido Column -->
+        <ng-container matColumnDef="apellido1">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>apellido1</th>
+          <td mat-cell *matCellDef="let employe">{{ employe.apellido1 }}</td>
+        </ng-container>
+        <!-- apellido Column -->
+        <ng-container matColumnDef="apellido2">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>apellido2</th>
+          <td mat-cell *matCellDef="let employe">{{ employe.apellido2 }}</td>
+        </ng-container>
+        <ng-container matColumnDef="codigo_departamento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>
+            codigo_departamento
+          </th>
+          <td mat-cell *matCellDef="let employe">
+            {{ employe.codigo_departamento }}
+          </td>
+        </ng-container>
+
+        <!-- Edit Button Column -->
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let employe">
+            <button
+              type="button"
+              class="btn p-0"
+              (click)="editEmploye(employe._id)"
+            >
+              <i class="bi bi-pencil-square h5"></i>
+            </button>
+          </td>
+        </ng-container>
+
+        <!-- Delete Button Column -->
+        <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let employe">
+            <button
+              type="button"
+              class="btn p-0"
+              (click)="deleteEmploye(employe._id)"
+            >
+              <i class="bi bi-trash-fill text-danger h5"></i>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</section>
