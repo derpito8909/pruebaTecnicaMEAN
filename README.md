@@ -32,7 +32,7 @@ git clone https://github.com/derpito8909/pruebaTecnicaMEAN.git
 2. para ejecutar el API ingrese a la carpeta /Backend, y instale las dependencias:
 
 ```shell
- cd /backend
+ cd backEnd
  npm install
 ```
 
@@ -45,7 +45,7 @@ npm run dev
 4. para ejecutar la pagina principal inngrese a la carpeta /frontend/pruebaTecnicaMEAN y instale las depencias
 
 ```shell
-cd /frontend/pruebaTecnicaMEAN npm install
+cd frontend/pruebaTecnicaMEAN && npm install
 ```
 
 5. ejecute el comando build para construir el proyecto
