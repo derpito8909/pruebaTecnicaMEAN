@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private baseURL = 'http://localhost:3000';
+  private baseURL = 'https://pruebatecnicafootalent.onrender.com';
 
   private http = inject(HttpClient);
 
